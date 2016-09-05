@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JQ制作导航栏</title>
+
+<style type="text/css">
+    #menu{
+	   width:300px;
+	}
+	.has_children{
+	   background:#555;
+	   color:#fff;
+	   cursor:pointer;
+	}
+	.highlight{
+	   color:#fff;
+	   background:green;
+	}
+	div{
+	   padding:0;
+	   margin:10px 0;
+	}
+	div a{
+	   background:#888;
+	   display:none;
+	   float:left;
+	   width:300px;
+	}
+</style>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript">
+    $(function(){
+	    $(".has_children").click(function(){     //给所有含有class为has_children的绑定一个点击事件
+		   $(this).addClass("highlight")        //给它添加一个类名为highlight，并且给它写了一些样式
+		          .children("a").show().end()   //查找到它的子元素 a ,当点击的时候显示出来。
+		   .siblings().removeClass("highlight")   //找它后面所有的同辈元素，并且移出它们的类highlight
+		          .children("a").hide();       //并且找到它们所有的子代元素隐藏起来。
+		});
+	});
+</script>
+</head>
+
+<body>
+   <div id="menu">
+        <div class="has_children">
+             <span>第一章-认识JQuery</span>
+             <a href="#">首页-1</a>
+             <a href="#">首页-2</a>
+             <a href="#">首页-3</a>
+             <a href="#">首页-4</a>
+             <a href="#">首页-5</a>
+             <a href="#">首页-6</a>
+             <a href="#">首页-7</a>
+        </div>
+        <div class="has_children">
+             <span>第二章-JQuery选择器</span>
+             <a href="#">首页-1</a>
+             <a href="#">首页-2</a>
+             <a href="#">首页-3</a>
+             <a href="#">首页-4</a>
+             <a href="#">首页-5</a>
+             <a href="#">首页-6</a>
+             <a href="#">首页-7</a>
+             <a href="#">小结-8</a>
+        </div>
+        <div class="has_children">
+             <span>第三章-JQuer中的DOM操作</span>
+             <a href="#">首页-1</a>
+             <a href="#">首页-2</a>
+             <a href="#">3、案例研究-某网站超链接和图片提示效果</a>
+             <a href="#">首页-4</a>
+        </div>
+   </div>
+</body>
+</html>

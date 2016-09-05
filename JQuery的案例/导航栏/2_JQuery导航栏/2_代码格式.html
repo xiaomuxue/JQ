@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>导航栏</title>
+<link rel="stylesheet" href="css/default.css" type="text/css">
+
+<!-- 引入 jQuery -->
+<script src="../../jquery-1.9.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+	    $(".level1 > a").click(function(){
+		     $(this).addClass("current")        //添加样式的功能  （类名）      链式添加不能在后面加分号
+			    .next().show()              //将a下的ul显示出来。
+			 .parent().siblings().children("a").removeClass("current")     //表示直接找 a 的父节点 li 的同辈节点下的 a 标签 是否有 current类 ，如果有，就移出，没有也不报错
+			    .next().hide();      //直接查找上面标签 a 的子节点 ul ,然后把它隐藏
+		});
+	});
+</script>
+
+</head>
+<body>
+
+
+<div class="box">
+	<ul class="menu">
+		<li class="level1">
+			<a href="#none">衬衫</a>
+			<ul class="level2">
+				<li><a href="#none">短袖衬衫</a></li>
+				<li><a href="#none">长袖衬衫</a></li>
+				<li><a href="#none">短袖T恤</a></li>
+				<li><a href="#none">长袖T恤</a></li>
+			</ul>
+		</li>
+		<li class="level1">
+			<a href="#none">卫衣</a>
+			<ul class="level2">
+				<li><a href="#none">开襟卫衣</a></li>
+				<li><a href="#none">套头卫衣</a></li>
+				<li><a href="#none">运动卫衣</a></li>
+				<li><a href="#none">童装卫衣</a></li>
+			</ul>
+		</li>
+		<li class="level1">
+			<a href="#none">裤子</a>
+			<ul class="level2">
+				<li><a href="#none">短裤</a></li>
+				<li><a href="#none">休闲裤</a></li>
+				<li><a href="#none">牛仔裤</a></li>
+				<li><a href="#none">免烫卡其裤</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>
