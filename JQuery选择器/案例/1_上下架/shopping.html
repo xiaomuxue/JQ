@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>当当网购物车页面</title>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/shopping.js"></script>
+
+</head>
+
+<body>
+<!--中间部分开始--> 
+<br/>
+<br/>
+<div id="main">
+  <div class="shopping_list_top">本店商品信息如下</div>
+  <div class="shopping_list_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="shopping_list_title">
+        <td class="shopping_list_title_1">商品名</td>
+        <td class="shopping_list_title_2">单品积分</td>
+        <td class="shopping_list_title_3">市场价</td>
+        <td class="shopping_list_title_4">当当价</td>
+        <td class="shopping_list_title_5">状态</td>
+        <td class="shopping_list_title_6">操作</td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="myTableProduct">
+      <tr class="shopping_product_list" id="shoppingProduct_01" onMouseOver="productOver('shoppingProduct_01')"  onMouseOut="productOut('shoppingProduct_01')">
+        <td class="shopping_product_list_1"><a href="#" class="blue">私募（首部披露资本博弈秘密的金融...</a></td>
+        <td class="shopping_product_list_2"><label>189</label></td>
+        <td class="shopping_product_list_3">￥
+          <label>32.00</label></td>
+        <td class="shopping_product_list_4">￥
+          <label>18.90 </label>
+          (59折)</td>
+        <td class="shopping_product_list_5"  style="color:green">已上架</td>
+        <td class="shopping_product_list_6"><a href="javascript:changeDown('shoppingProduct_01')" class="blue">[下架]</a></td>
+      </tr>
+      <tr class="shopping_product_list" id="shoppingProduct_02" onMouseOver="productOver('shoppingProduct_02')"  onMouseOut="productOut('shoppingProduct_02')">
+        <td class="shopping_product_list_1"><a href="#" class="blue"> 小团圆（张爱玲最神秘小说遗稿）</a></td>
+        <td class="shopping_product_list_2"><label>173</label></td>
+        <td class="shopping_product_list_3">￥
+          <label>28.00</label></td>
+        <td class="shopping_product_list_4">￥
+          <label>17.30</label>
+          (62折)</td>
+        <td class="shopping_product_list_5" style="color:green">已上架</td>
+        <td class="shopping_product_list_6"><a href="javascript:changeDown('shoppingProduct_02')" class="blue">[下架]</a></td>
+      </tr>
+      <tr class="shopping_product_list" id="shoppingProduct_03" onMouseOver="productOver('shoppingProduct_03')"  onMouseOut="productOut('shoppingProduct_03')">
+        <td class="shopping_product_list_1"><a href="#" class="blue">不抱怨的世界(畅销全球80国的世界...</a></td>
+        <td class="shopping_product_list_2"><label>154</label></td>
+        <td class="shopping_product_list_3">￥
+          <label>24.80</label></td>
+        <td class="shopping_product_list_4">￥
+          <label>15.40</label>
+          (62折)</td>
+        <td class="shopping_product_list_5"  style="color:red">已下架</td>
+        <td class="shopping_product_list_6"><a href="javascript:javascript:changeUp('shoppingProduct_03')" class="blue">[上架]</a></td>
+      </tr>
+      <tr class="shopping_product_list" id="shoppingProduct_04" onMouseOver="productOver('shoppingProduct_04')"  onMouseOut="productOut('shoppingProduct_04')">
+        <td class="shopping_product_list_1"><a href="#" class="blue">福玛特双桶洗衣机XPB20-07S</a></td>
+        <td class="shopping_product_list_2"><label>358</label></td>
+        <td class="shopping_product_list_3">￥
+          <label>458.00</label></td>
+        <td class="shopping_product_list_4">￥
+          <label>358.00</label>
+          (78折)</td>
+        <td class="shopping_product_list_5" style="color:red">已下架</td>
+        <td class="shopping_product_list_6"><a href="javascript:changeUp('shoppingProduct_04')" class="blue">[上架]</a></td>
+      </tr>
+      <tr class="shopping_product_list" id="shoppingProduct_05" onMouseOver="productOver('shoppingProduct_05')"  onMouseOut="productOut('shoppingProduct_05')">
+        <td class="shopping_product_list_1"><a href="#" class="blue">PHP和MySQL Web开发 （原书第4版）</a></td>
+        <td class="shopping_product_list_2"><label>712</label></td>
+        <td class="shopping_product_list_3">￥
+          <label>95.00</label></td>
+        <td class="shopping_product_list_4">￥
+          <label>71.20</label>
+          (75折)</td>
+        <td class="shopping_product_list_5" style="color:red">已下架</td>
+        <td class="shopping_product_list_6"><a href="javascript:changeUp('shoppingProduct_05')" class="blue">[上架]</a></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script>
+
+ //方法二：
+	function changeUp( trid ){
+       $("#"+trid+" td:eq(4)").text("已上架").css("color","green");
+	   $("#"+trid+" td:eq(5) a").attr("href","javascript:changeDown(\'"+trid+"\')").text("[下架]");
+	}
+	
+	function changeDown( trid ){
+       $("#"+trid+" td:eq(4)").text("已下架").css("color","red");
+	   $("#"+trid+" td:eq(5) a").attr("href","javascript:changeUp(\'"+trid+"\')").text("[上架]");
+	}
+
+ 
+</script>
+
+</body>
+</html>
