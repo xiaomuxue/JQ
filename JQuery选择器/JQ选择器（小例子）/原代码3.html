@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript">
+
+/*window.onload = function(){//页面所有元素加载完毕
+	var btn = document.getElementById("btn");  //获取id为btn的元素(button)
+	btn.onclick = function(){				   //给元素添加onclick事件
+		var arrays = new Array();              //创建一个数组对象
+		var items = document.getElementsByName("check");  //获取name为check的一组元素(checkbox)
+		for(i=0; i < items.length; i++){  //循环这组数据
+			if(items[i].checked){      //判断是否选中
+				arrays.push(items[i].value);  //把符合条件的 添加到数组中. push()是javascript数组中的方法.
+			}
+		}
+		alert( "选中的个数为："+arrays.length  );
+	}
+}*/
+
+$(function(){
+   $("#btn").click(function(){
+	   //var items=$(":checkbox:checked");      //第一种写法
+	  // var items=$("input[name=check]:checked");     //第二种写法
+	  var items=$("form input[name=check]:checked");
+	   alert("选中的个数为："+items.length);
+	});
+  
+});
+
+</script>
+</head>
+<body>
+<form method="post" action="#">
+	<input type="checkbox" value="1" name="check" checked="checked">
+	<input type="checkbox" value="2" name="check">
+	<input type="checkbox" value="3" name="check" checked="checked">
+	<input type="button" value="你选中的个数" id="btn">
+</form>
+</body>
+</html>
