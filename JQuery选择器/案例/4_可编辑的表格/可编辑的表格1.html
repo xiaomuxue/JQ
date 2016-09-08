@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>可编辑表格</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="application/javascript">
+	
+var selectedtr;//这是光标选定的那一行，一定要是一个jquery对象,使之后可以直接操作
+
+$(function(){
+	init();
+});
+
+function init(){
+	//奇数行的背景颜色
+	$("table tbody tr:even").css({"background-color":"blue","color":"white"});
+	
+	//给tr绑定鼠标移入移出效果
+	$("table tbody tr").bind({
+		mouseover:function(){
+			$(this).css("backgroundColor","green");
+		},
+		mouseout:function(){
+			if($(this).index()%2==0){//如果是奇数行
+				$(this).css({"background-color":"blue","color":"white"});
+			}else{//如果是偶数行
+				$(this).css({"background-color":"white","color":"black"});
+			}
+		}
+	});
+	
+	$("table tbody tr td").unbind().bind({//先删除之前添的事件，再加入新事件
+		click:function(){
+			selectedtr=$(this).parent();
+		},
+		dblclick:function(){//给td加双击事件
+			var $newinput=$("<input type='text' />");//新生成一个input标签用于编辑
+			$newinput.css({//设置input的样式
+				"border":"1px solid",
+				"font-size":"12px"
+			});
+			var oldvalue=$(this).html();//存好td里的值
+			$newinput.val(oldvalue);//把td里的值加到input的value属性中
+			$(this).html($newinput);//添加到td里面去
+			$newinput.focus();//使新加的input标签获取焦点，让之后的失焦事件直接执行，而不是需要用户点击获取一次焦点，再失焦
+			$newinput.select();
+			
+			var tdobj=$(this);//存好td
+			
+			//给新的input元素绑定事件
+			$newinput.blur(function(){
+				//失去焦点
+				tdobj.html(oldvalue);
+			});
+			$newinput.keyup(function(event){
+				var keycode=event.which;
+				if(keycode==13){//回车
+					var newvalue=$(this).val();
+					tdobj.html(newvalue);
+				}
+			});
+		}
+	});
+	
+}
+function delInfo(){//删除一行
+	//先判断是否选定了一行
+	if(selectedtr){
+		var result=confirm("您确定删除这一行吗？");
+		if(result){
+			selectedtr.remove();
+		}
+	}else{
+		alert("请至少选定一行");
+	}
+}
+function addInfo(){//添加一行
+	var newtr=$("<tr><td>&nbsp;</td><td>&nbsp;</td></tr>");
+	newtr.appendTo($("table tbody"));
+	init();//重新绑定一次事件
+}
+
+
+</script>
+<style type="text/css">
+	*{
+		font-size:12px;
+	}
+	
+	table{
+		border:1px solid #999;
+		border-collapse:collapse;/*修正单元格之间的边框为可合并*/
+		width:400px;
+	}
+	
+	table tr{
+		line-height:24px;
+	}
+	
+	table tbody th{
+		background:#36F;
+		width:50%;
+	}
+	
+	table td{
+		text-align:center;
+	}
+	
+	a{
+		display:inline-block;
+		padding:8px;
+		background:#3C6;
+		text-decoration:none;
+		font-size:18px;
+		font-weight:bold;
+		color:#FC3;
+		font-family:"隶书";
+		margin-left:10px;
+	}
+	
+	a:hover{
+		background:#666;
+	}
+</style>
+</head>
+
+<body>
+    <table border="1px" cellpadding="0px" cellspacing="0px" id="mytable" align="center" width="600px">
+    	<thead>
+        	<tr>
+            	<th colspan="2">学生信息表</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr>
+            	<th>学号</th>
+                <th>姓名</th>
+            </tr>
+            <tr>
+            	<td>08301440110</td>
+                <td>张三</td>
+            </tr>
+        	<tr>
+            	<td>08301440111</td>
+                <td>李四</td>
+            </tr>
+            <tr>
+            	<td>08301440112</td>
+                <td>王五</td>
+            </tr>
+            <tr>
+            	<td>08301440113</td>
+                <td>赵六</td>
+            </tr>
+            <tr>
+            	<td>08301440114</td>
+                <td>钱七</td>
+            </tr>
+            <tr>
+            	<td>08301440115</td>
+                <td>王八</td>
+            </tr>
+        </tbody>
+    </table>
+    <br /> <br />
+    <center><a href="javascript:delInfo()">删除光标所在行</a><a href="javascript:addInfo()">添加一行</a></center>
+</body>
+</html>
