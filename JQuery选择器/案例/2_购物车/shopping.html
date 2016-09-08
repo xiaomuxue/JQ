@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>当当网购物车页面</title>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/shopping.js"></script>
+</head>
+
+<body>
+<!--中间部分开始-->
+<br/><br/>
+<div id="main">
+  <div>&nbsp;&nbsp;<img src="images/shopping_myshopping.gif" alt="shopping"></div>
+  <!--为您推荐商品开始-->
+  <div class="shopping_commend">
+     <div class="shopping_commend_left">根据您挑选的商品，当当为您推荐</div>
+     <div class="shopping_commend_right"><img src="images/shopping_arrow_up.gif" alt="shopping" id="shopping_commend_arrow" onClick="shopping_commend_show()"></div>
+  </div>
+  <div id="shopping_commend_sort">
+   <div class="shopping_commend_sort_left">
+    <ul id="ul1">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">JavaScript DOM编程艺术</a></li>
+      <li class="shopping_commend_list_2">￥39.00</li>
+      <li class="shopping_commend_list_3">￥29.30</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul1')" class="shopping_yellow">购买</a></li>
+    </ul>
+     <ul id="ul2">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">解禁（当当网独家首发）</a></li>
+      <li class="shopping_commend_list_2">￥28.00</li>
+      <li class="shopping_commend_list_3">￥19.40</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul2')" class="shopping_yellow">购买</a></li>
+    </ul>
+     <ul id="ul3">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">地王之王（金融危机下房地产行...</a></li>
+      <li class="shopping_commend_list_2">￥32.80</li>
+      <li class="shopping_commend_list_3">￥25.10</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul3')" class="shopping_yellow">购买</a></li>
+    </ul>
+     <ul id="ul4">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">逃庄</a></li>
+      <li class="shopping_commend_list_2">￥36.00</li>
+      <li class="shopping_commend_list_3">￥27.70</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul4')" class="shopping_yellow">购买</a></li>
+    </ul>
+   </div>
+   <div class="shopping_commend_sort_mid"></div>
+   <div class="shopping_commend_sort_left">
+     <ul id="ul5">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">深入浅出MySQL数据库开发、优...</a></li>
+      <li class="shopping_commend_list_2">￥59.00</li>
+      <li class="shopping_commend_list_3">￥47.20</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul5')" class="shopping_yellow">购买</a></li>
+    </ul>
+     <ul id="ul6">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">大玩家（马未都、王刚推荐!央...</a></li>
+      <li class="shopping_commend_list_2">￥34.80</li>
+      <li class="shopping_commend_list_3">￥20.60</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul6')" class="shopping_yellow">购买</a></li>
+    </ul>
+     <ul id="ul7">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">都市风水师--官场风水小说：一...</a></li>
+      <li class="shopping_commend_list_2">￥39.80</li>
+      <li class="shopping_commend_list_3">￥30.50</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul7')" class="shopping_yellow">购买</a></li>
+    </ul>
+     <ul id="ul8">
+      <li class="shopping_commend_list_1">·<a href="#" class="blue">国戏（以麻将术语解读宦海沉浮...</a></li>
+      <li class="shopping_commend_list_2">￥25.00</li>
+      <li class="shopping_commend_list_3">￥17.30</li>
+      <li class="shopping_commend_list_4"><a href="javascript:buyProduct('ul8')" class="shopping_yellow">购买</a></li>
+    </ul>
+    </div>
+  </div>
+   
+<div class="shopping_list_top">您已选购以下商品</div>
+  <div class="shopping_list_border">
+
+     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr class="shopping_list_title">
+       <td class="shopping_list_title_1">商品名</td>
+       <td class="shopping_list_title_2">单品积分</td>
+       <td class="shopping_list_title_3">市场价</td>
+       <td class="shopping_list_title_4">当当价</td>
+       <td class="shopping_list_title_5">数量</td>
+       <td class="shopping_list_title_6">删除</td>
+    </tr>
+    </table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="myTableProduct">
+   <tr class="shopping_product_list" id="shoppingProduct_01">
+       <td class="shopping_product_list_1"><a href="#" class="blue">私募（首部披露资本博弈秘密的金融...</a></td>
+       <td class="shopping_product_list_2"><label>189</label></td>
+       <td class="shopping_product_list_3">￥<label>32.00</label></td>
+       <td class="shopping_product_list_4">￥<label>18.90 </label>(59折)</td>
+       <td class="shopping_product_list_5"><input type="text" value="1" onblur="productCount()"></td>
+       <td class="shopping_product_list_6"><a href="javascript:deleteProduct('shoppingProduct_01')" class="blue">删除</a></td>
+   </tr>
+   <tr class="shopping_product_list" id="shoppingProduct_02">
+       <td class="shopping_product_list_1"><a href="#" class="blue"> 小团圆（张爱玲最神秘小说遗稿）</a></td>
+       <td class="shopping_product_list_2"><label>173</label></td>
+       <td class="shopping_product_list_3">￥<label>28.00</label></td>
+       <td class="shopping_product_list_4">￥<label>17.30</label>(62折)</td>
+       <td class="shopping_product_list_5"><input type="text" value="1" onBlur="productCount()"></td>
+       <td class="shopping_product_list_6"><a href="javascript:deleteProduct('shoppingProduct_02')" class="blue">删除</a></td>
+   </tr> 
+   
+  <tr class="shopping_product_list" id="shoppingProduct_03">
+       <td class="shopping_product_list_1"><a href="#" class="blue">不抱怨的世界(畅销全球80国的世界...</a></td>
+       <td class="shopping_product_list_2"><label>154</label></td>
+       <td class="shopping_product_list_3">￥<label>24.80</label></td>
+       <td class="shopping_product_list_4">￥<label>15.40</label> (62折)</td>
+       <td class="shopping_product_list_5"><input type="text" value="2" onBlur="productCount()"></td>
+       <td class="shopping_product_list_6"><a href="javascript:deleteProduct('shoppingProduct_03')" class="blue">删除</a></td>
+   </tr>  
+  <tr class="shopping_product_list" id="shoppingProduct_04">
+       <td class="shopping_product_list_1"><a href="#" class="blue">福玛特双桶洗衣机XPB20-07S</a></td>
+       <td class="shopping_product_list_2"><label>358</label></td>
+       <td class="shopping_product_list_3">￥<label>458.00</label></td>
+       <td class="shopping_product_list_4">￥<label>358.00</label> (78折)</td>
+       <td class="shopping_product_list_5"><input type="text" value="1" onBlur="productCount()"></td>
+       <td class="shopping_product_list_6"><a href="javascript:deleteProduct('shoppingProduct_04')" class="blue">删除</a></td>
+   </tr>   
+  <tr class="shopping_product_list" id="shoppingProduct_05">
+       <td class="shopping_product_list_1"><a href="#" class="blue">PHP和MySQL Web开发 （原书第4版）</a></td>
+       <td class="shopping_product_list_2"><label>712</label></td>
+       <td class="shopping_product_list_3">￥<label>95.00</label></td>
+       <td class="shopping_product_list_4">￥<label>71.20</label> (75折)</td>
+       <td class="shopping_product_list_5"><input type="text" value="1" onBlur="productCount()"></td>
+       <td class="shopping_product_list_6"><a href="javascript:deleteProduct('shoppingProduct_05')" class="blue">删除</a></td>
+   </tr>   
+  <tr class="shopping_product_list" id="shoppingProduct_06">
+       <td class="shopping_product_list_1"><a href="#" class="blue">法布尔昆虫记</a>（再买￥68.30即可参加“满199元减10元现金”活动）</td>
+       <td class="shopping_product_list_2"><label>10</label></td>
+       <td class="shopping_product_list_3">￥<label>198.00</label></td>
+       <td class="shopping_product_list_4">￥<label>130.70</label> (66折)</td>
+       <td class="shopping_product_list_5"><input type="text" value="1" onBlur="productCount()"></td>
+       <td class="shopping_product_list_6"><a href="javascript:deleteProduct('shoppingProduct_06')" class="blue">删除</a></td>
+   </tr>
+    </table>   
+     <div class="shopping_list_end">
+      <ul>
+       <li class="shopping_list_end_1"><input name="" type="image" src="images/shopping_balance.gif"></li>
+       <li class="shopping_list_end_2">￥<label id="product_total"></label></li>
+       <li class="shopping_list_end_3">商品金额总计：</li>
+       <li  class="shopping_list_end_4">您共节省金额：￥<label class="shopping_list_end_yellow" id="product_save"></label><br/>
+可获商品积分：<label class="shopping_list_end_yellow" id="product_integral"></label>
+</li>
+       </ul>
+    </div> 
+     
+  </div>
+  
+ 
+  
+  
+</div>
+</body>
+</html>
