@@ -1,0 +1,41 @@
+
+.scroll_mid{
+	background-color:#f2f2f3;
+	border-left:solid 1px #d6d5d6;
+	border-right:solid 1px #d6d5d6;
+	width:535px;
+	height:250px;
+	padding:5px 5px 5px 5px;
+	float:left;
+}
+
+
+#dd_scroll{
+	float:right;
+}
+
+
+#scroll_number{
+	clear:both;
+	padding-right:10px;
+	display:inline;
+}
+
+#scroll_number li{
+	width:20px;
+	line-height:16px;
+	text-align:center;
+	border:solid 1px #999;
+	margin-top:5px;
+	font-size:12px;
+	float:left;
+}
+	
+.scroll_number_out{
+	background-color:#f2f2f3;
+}
+	
+.scroll_number_over{
+	background-color:#F96;
+	color:#FFF;
+}

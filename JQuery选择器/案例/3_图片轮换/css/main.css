@@ -1,0 +1,22 @@
+*{
+	background:transparent;
+	border 0;
+	margin:0;
+	padding:0;
+	vertical-align baseline;
+}
+
+ul{
+	list-style-type: none;
+}
+
+
+body{
+	background-color:#dfdfdf;
+}
+
+.maintype_left{
+	margin:10px 0 0 11px;
+	width:545px;
+	height:260px;
+}

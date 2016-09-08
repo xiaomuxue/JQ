@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>图片轮换</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.8.0.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="maintype_left">
+        <div class="scroll_mid">
+            <img src="images/dd_scroll_1.jpg" id="dd_scroll" />
+            <ul id="scroll_number">
+                <li onMouseOver="show(1)" onMouseOut="start()" >1</li>
+                <li onMouseOver="show(2)" onMouseOut="start()">2</li>
+                <li onMouseOver="show(3)" onMouseOut="start()">3</li>
+                <li onMouseOver="show(4)" onMouseOut="start()">4</li>
+                <li onMouseOver="show(5)" onMouseOut="start()">5</li>
+                <li onMouseOver="show(6)" onMouseOut="start()">6</li>
+            </ul>
+        </div>
+    </div>
+    
+   <!--/* <script>
+       $(function(){
+		 $("ul li").mouseover(function(){
+	         var imgObj=$("dd_scroll");
+			 imgObj.src="images/dd_scroll_"+index+".jpg";  
+		 }).onmouseout(function(){
+	         var imgObj=$("dd_scroll");
+			 imgObj.src="images/dd_scroll_"+index+".jpg";
+		 });
+		 index++;*/
+		 
+		 
+			$('li').mouseover(function(){
+				$(this).addClass('scroll_number_over');
+				$('#dd_scroll').attr('src','images/dd_scroll_'+( $(this).text() )+'.jpg')
+			})
+				.mouseout(function(){
+					$(this).removeClass('scroll_number_over');
+				})
+	       
+	   });
+    </script>-->
+    
+</body>
+</html>
