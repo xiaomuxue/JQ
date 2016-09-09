@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>面向对象的无刷新表格分页</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <style>
+    *{
+		margin:0 auto;
+		padding:0;
+	}
+	#cs_table{
+		margin-top:50px;
+		border:3px #a9c6c9 solid;
+		box-shadow: 2px 4px 6px #000;
+		border-radius: 4px;
+	}
+	#cs_table td,th{
+		width:80px;
+		padding-left:6px;
+		padding-right:6px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		font-size:16px;
+		border:2px #006600 solid;
+		border-style: solid;
+		border-color: #a9c6c9;
+		box-shadow: 2px 2px 3px #000;
+		border-radius:8px;
+	}
+	
+</style>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/king-table.js"></script>
+</head>
+<body>
+<table id="cs_table" border-color="blue" class="data-table"></table>
+
+<script type="text/javascript">
+    var data = [];
+    for(var i=0;i<22;i++)
+    {
+        data[i] = {id:i+1,name:"jason"+(i+1),gender:"男",age:i+1,other:"备注"+i};
+    }
+//data=[[1,2,3,4,5],[],[]]
+    table({
+        "tableId":"cs_table",    //必须 表格id
+        "headers":["序号","姓名","性别","年龄","备注"],   //必须 thead表头
+        "data":data,         //必须 tbody 数据展示
+        "displayNum":13,    //必须   默认 10  每页显示行数
+        "display_tfoot":true // true/false  是否显示tfoot --- 默认false
+       
+    });
+	
+	
+	
+</script>
+</body>
+</html>
