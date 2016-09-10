@@ -1,0 +1,51 @@
+/* Portfolio Filter Stylesheet */
+/* Download by http://www.codefans.net */
+/*****Reset*****/
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td { margin: 0; padding: 0; }
+
+/*****Basic Definitions*****/
+body { color: #333; font: 12px/18px Verdana, Helvetica, Arial, sans-serif; }
+h1 { font-size: 1.667em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.333em; }
+h4 { font-size: 1.167em; }
+h5, h6 { font-size: 1em; }
+
+a { color: #333; }
+a:visited { }
+a:hover { text-decoration: none; }
+p, ul, ol, dl, table { margin-bottom: 18px; }
+ul, ol, dd { margin-left: 36px; }
+
+/*****Custom Classes*****/
+.clearing { clear: both; }
+.last { margin-bottom: 0; }
+.screenReader { left: -9999px; position: absolute; top: -9999px; }
+
+/*****Basic Layout*****/
+div#container { margin: 20px auto 0; overflow: hidden; width: 672px; }
+
+ul#filter { float: left; font-size: 16px; list-style: none; margin-left: 0; width: 100%; }
+ul#filter li { 
+	border-right: 1px solid #dedede;
+	float: left;
+	line-height: 16px;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+ul#filter li:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+ul#filter a { color: #999; text-decoration: none; }
+ul#filter li.current a, ul#filter a:hover { text-decoration: underline; }
+ul#filter li.current a { color: #333; font-weight: bold; }
+
+ul#portfolio { float: left; list-style: none; margin-left: 0; width: 672px; }
+ul#portfolio li { 
+	border: 1px solid #dedede; 
+	float: left; 
+	margin: 0 10px 10px 0; 
+	padding: 5px;
+	width: 202px;
+}
+ul#portfolio a { display: block; width: 100%; }
+ul#portfolio a:hover { text-decoration: none; }
+ul#portfolio img { border: 1px solid #dedede; display: block; padding-bottom: 5px; }
